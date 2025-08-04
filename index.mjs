@@ -92,7 +92,7 @@ async function sendScheduledSMS(timeLabel) {
 }
 
 // ⏰ 6:00 AM every day
-cron.schedule("35 13 * * *", () => sendScheduledSMS("6:00 AM"));
+cron.schedule("45 13 * * *", () => sendScheduledSMS("6:00 AM"));
 
 // ⏰ 6:00 PM every day
 cron.schedule("9 21 * * *", () => sendScheduledSMS("6:00 PM"));
