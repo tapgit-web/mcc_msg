@@ -54,4 +54,8 @@ async function sendScheduledSMS(label) {
 }
 
 // Test schedule: runs every 1 minute
-cron.schedule("*/1 * * * *", () => sendScheduledSMS("Test Run"));
+//cron.schedule("*/1 * * * *", () => sendScheduledSMS("Test Run"));
+
+cron.schedule("51 11 * * *", () => sendScheduledSMS("6:00 AM"));
+cron.schedule("10 12 * * *", () => sendScheduledSMS("9:01 PM"));
+
