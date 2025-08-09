@@ -36,5 +36,5 @@ async function sendScheduledSMS(label) {
 }
 
 // ⏰ Schedule times
-cron.schedule("30 8 * * *", () => sendScheduledSMS("6:00 AM"));  // Morning
-cron.schedule("5 8 * * *", () => sendScheduledSMS("9:01 PM")); // Evening
+cron.schedule("5 11 * * *", () => sendScheduledSMS("6:00 AM"));  // Morning
+cron.schedule("0 12 * * *", () => sendScheduledSMS("9:01 PM")); // Evening
