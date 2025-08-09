@@ -45,17 +45,15 @@ async function sendScheduledSMS(label) {
 
     const message = `📡 ${label} Input_Report: Value = ${inputValue}`;
     console.log(`📲 Sending SMS at ${label}:`, message);
-
     await sendSMS(message, number);
     console.log("✅ SMS sent successfully.");
   } catch (err) {
     console.error(`❌ Failed at ${label}:`, err);
   }
 }
-
 // Test schedule: runs every 1 minute
 //cron.schedule("*/1 * * * *", () => sendScheduledSMS("Test Run"));
 
 cron.schedule("51 11 * * *", () => sendScheduledSMS("6:00 AM"));
-cron.schedule("10 12 * * *", () => sendScheduledSMS("9:01 PM"));
+cron.schedule("4 12 * * *", () => sendScheduledSMS("9:01 PM"));
 
