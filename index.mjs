@@ -15,6 +15,7 @@ app.listen(PORT, () => console.log(`🌐 Server listening on port ${PORT}`));
 
 // Firebase reference
 const alertsRef = ref(db, "sms/read/plc_device_EE025F9D4E1F595D9A3947F9E1669BFE");
+const logsRef = ref(db, "sms/logs"); 
 
 // Change this to your actual number with country code
 const number = "919489826549";
@@ -42,11 +43,24 @@ async function sendScheduledSMS(label) {
 
     const latest = dataArray[dataArray.length - 1];
     const inputValue = latest?.values?.input ?? "N/A";
+    const timestamp = latest?.ts ?? Date.now();
 
     const message = `📡 ${label} Input_Report: Value = ${inputValue}`;
     console.log(`📲 Sending SMS at ${label}:`, message);
     await sendSMS(message, number);
     console.log("✅ SMS sent successfully.");
+    // Log SMS in Firebase
+    const logEntry = {
+      label,
+      message,
+      number,
+      timestamp: timestamp
+    };
+    await push(logsRef, logEntry);
+    console.log("📝 SMS logged in Firebase:", logEntry);
+
+
+    
   } catch (err) {
     console.error(`❌ Failed at ${label}:`, err);
   }
@@ -54,11 +68,11 @@ async function sendScheduledSMS(label) {
 // Test schedule: runs every 1 minute
 //cron.schedule("*/1 * * * *", () => sendScheduledSMS("Test Run"));
 
-cron.schedule("30 17 * * *", () => sendScheduledSMS("6:00 AM"), {
+cron.schedule("1 6 * * *", () => sendScheduledSMS("6:00 AM"), {
   timezone: "Asia/Kolkata"
 });
 
-cron.schedule("1 18 * * *", () => sendScheduledSMS("9:01 PM"), {
+cron.schedule("1 18 * * *", () => sendScheduledSMS("6:00 PM"), {
   timezone: "Asia/Kolkata"
 });
 
