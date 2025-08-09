@@ -12,12 +12,12 @@ const sendSMS = async (message, number) => {
       numbers: number,
     }, {
       headers: {
-        authorization: '9Q1xbkwgyZV0MTNnLCEszm7WAfvhtDYuRorjS2IXe8KplHJ45aCcwaXkUANnF3ITB7gjLVtQmh2eOHob',
+        authorization: process.env.FAST2SMS_API_KEY,
       },
     });
 
     console.log("✅ SMS Sent:", response.data);
-    console.log("✅ SMS Sent:", response.data);
+    
   } catch (error) {
     console.error("❌ Error sending SMS:", error.response?.data || error.message);
   }
