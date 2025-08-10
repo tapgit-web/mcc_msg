@@ -18,7 +18,7 @@ const alertsRef = ref(db, "sms/read/plc_device_EE025F9D4E1F595D9A3947F9E1669BFE"
 const logsRef = ref(db, "sms/logs"); 
 
 // Change this to your actual number with country code
-const number = "919489826549";
+const number = "919087589685";
 
 // Function to send scheduled SMS
 async function sendScheduledSMS(label) {
