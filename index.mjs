@@ -15,7 +15,7 @@ app.listen(PORT, () => console.log(`🌐 Server listening on port ${PORT}`));
 
 // Firebase reference
 const alertsRef = ref(db, "sms/read/plc_device_EE025F9D4E1F595D9A3947F9E1669BFE");
-const logsRef = ref(db, "sms/logs"); // New path to store logs
+const logsRef = ref(db, "smslog/logs"); // New path to store logs
 
 // Number with country code
 const number = "919489826549";
@@ -54,6 +54,7 @@ async function sendScheduledSMS(label) {
       message,
       inputValue,
       timestamp,
+      number,
       sentAt: new Date().toISOString()
     });
     console.log("📝 Logged SMS to Firebase.");
