@@ -63,10 +63,10 @@ async function sendScheduledSMS(label) {
 }
 
 // Schedules
-cron.schedule("24 17 * * *", () => sendScheduledSMS("6:00 AM"), {
+cron.schedule("0 6 * * *", () => sendScheduledSMS("6:00 AM"), {
   timezone: "Asia/Kolkata"
 });
 
-cron.schedule("1 18 * * *", () => sendScheduledSMS("9:01 PM"), {
+cron.schedule("1 18 * * *", () => sendScheduledSMS("6:00 PM"), {
   timezone: "Asia/Kolkata"
 });
