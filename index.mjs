@@ -14,7 +14,7 @@ app.get("/", (req, res) => res.send("✅ Scheduler is running"));
 app.listen(PORT, () => console.log(`🌐 Server listening on port ${PORT}`));
 
 // Firebase reference
-const alertsRef = ref(db, "sms/read/plc_device_");
+const alertsRef = ref(db, "sms/read/plc_device_EE025F9D4E1F595D9A3947F9E1669BFE");
 const logsRef = ref(db, "sms/logs"); // New path to store logs
 
 // Number with country code
