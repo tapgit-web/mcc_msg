@@ -43,7 +43,7 @@ async function sendScheduledSMS(label) {
     const inputValue = latest?.values?.input ?? "N/A";
     const timestamp = latest?.ts ?? Date.now(); // get ts or current time
 
-    const message = `📡 ${label} Input_Report: Value = ${inputValue}`;
+    const message = `📡 ${label} Input-Report: Value = ${inputValue}`;
     console.log(`📲 Sending SMS at ${label}:`, message);
     await sendSMS(message, number);
     console.log("✅ SMS sent successfully.");
@@ -64,7 +64,7 @@ async function sendScheduledSMS(label) {
 }
 
 // Schedules
-cron.schedule("25 18 * * *", () => sendScheduledSMS("6:00 AM"), {
+cron.schedule("30 18 * * *", () => sendScheduledSMS("6:00 AM"), {
   timezone: "Asia/Kolkata"
 });
 
