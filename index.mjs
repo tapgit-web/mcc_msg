@@ -68,6 +68,6 @@ cron.schedule("30 18 * * *", () => sendScheduledSMS("6:00 AM"), {
   timezone: "Asia/Kolkata"
 });
 
-cron.schedule("1 18 * * *", () => sendScheduledSMS("6:00 PM"), {
+cron.schedule("45 18 * * *", () => sendScheduledSMS("6:00 PM"), {
   timezone: "Asia/Kolkata"
 });
