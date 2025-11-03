@@ -177,9 +177,9 @@ async function logDataToFirebase() {
 
 // Cron Jobs
 // Run data logger every minute between 08:26-29:30 IST
-cron.schedule("*/1 26-29 8 * * *", () => logDataToFirebase(), { timezone: "Asia/Kolkata" });
+cron.schedule("*/5 26-29 8 * * *", () => logDataToFirebase(), { timezone: "Asia/Kolkata" });
 // Run data logger every minute between 17:26-29:30 IST
-cron.schedule("*/1 26-29 17 * * *", () => logDataToFirebase(), { timezone: "Asia/Kolkata" });
+cron.schedule("*/5 26-29 17 * * *", () => logDataToFirebase(), { timezone: "Asia/Kolkata" });
 
 // SMS schedules
 cron.schedule("30 8 * * *", () => sendScheduledSMS("8:30 AM"), { timezone: "Asia/Kolkata" });
