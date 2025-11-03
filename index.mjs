@@ -1,3 +1,4 @@
+
 import express from "express";
 import { db } from "./firebase.js";
 import { sendSMS } from "./sendSMS.mjs";
@@ -163,19 +164,22 @@ async function logDataToFirebase() {
       } catch (err) {
         console.error("❌ Failed to auto-delete log:", err);
       }
-    }, 15 * 60 * 1000); // 15 minutes
+    }, 5 * 60 * 1000); // 15 minutes
   } catch (err) {
     console.error("❌ Data logging failed:", err);
   }
 }
 
-// Cron Jobs
-// Run data logger every minute between 08:25-08:30 IST
-cron.schedule("*/1 25-30 8 * * *", () => logDataToFirebase(), { timezone: "Asia/Kolkata" });
-// Run data logger every minute between 17:25-17:30 IST
 
-// Run data logger every minute between 12:40-12:45 IST
-cron.schedule("*/1 40-45 12 * * *", () => logDataToFirebase(), { timezone: "Asia/Kolkata" });
+
+
+
+
+// Cron Jobs
+// Run data logger every minute between 08:26-29:30 IST
+cron.schedule("*/1 26-29 8 * * *", () => logDataToFirebase(), { timezone: "Asia/Kolkata" });
+// Run data logger every minute between 17:26-29:30 IST
+cron.schedule("*/1 26-29 17 * * *", () => logDataToFirebase(), { timezone: "Asia/Kolkata" });
 
 // SMS schedules
 cron.schedule("30 8 * * *", () => sendScheduledSMS("8:30 AM"), { timezone: "Asia/Kolkata" });
